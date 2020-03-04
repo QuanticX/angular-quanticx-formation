@@ -12,6 +12,7 @@ import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.compon
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { IfComponent } from './if/if.component';
+import { ForComponent } from './for/for.component';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -21,13 +22,14 @@ const appRoutes: Routes = [
   { path: 'two-way-binding', component: TwoWayBindingComponent },
   { path: 'input-output', component: ParentComponent },
   { path: 'if', component: IfComponent },
+  { path: 'for', component: ForComponent },
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes )
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
