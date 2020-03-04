@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
@@ -28,7 +27,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes )
  ],
-  declarations: [ AppComponent, HelloComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
