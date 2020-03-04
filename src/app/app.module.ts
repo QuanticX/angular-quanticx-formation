@@ -8,18 +8,20 @@ import { HelloComponent } from './hello.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
+import { EventBindingComponent } from './event-binding/event-binding.component';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
   { path: 'pipe', component: PipeComponent },
   { path: 'property-binding', component: PropertyBindingComponent },
+  { path: 'event-binding', component: EventBindingComponent },
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes )
  ],
-  declarations: [ AppComponent, HelloComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent ],
+  declarations: [ AppComponent, HelloComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
