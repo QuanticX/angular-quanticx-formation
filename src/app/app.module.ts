@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
 import { AppComponent } from './app.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
 import { PipeComponent } from './pipe/pipe.component';
@@ -13,6 +16,9 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { IfComponent } from './if/if.component';
 import { ForComponent } from './for/for.component';
+import { LogService } from './log.service';
+import { APIComponent } from './api/api.component';
+import { HttpService } from './http.service';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -23,13 +29,15 @@ const appRoutes: Routes = [
   { path: 'input-output', component: ParentComponent },
   { path: 'if', component: IfComponent },
   { path: 'for', component: ForComponent },
+  { path: 'api', component: APIComponent },
 ];
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes )
+  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService]
 })
 export class AppModule { }
