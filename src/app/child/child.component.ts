@@ -14,7 +14,7 @@ export class ChildComponent implements OnInit {
   @Input() 
   greetMessage: string;
   @Output() 
-  valueChange = new EventEmitter();
+  valueChange = new EventEmitter<number>();
    counter = 0;    
    valueChanged() {
         this.counter = this.counter + 1;        
