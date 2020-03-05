@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -19,6 +19,7 @@ import { ForComponent } from './for/for.component';
 import { LogService } from './log.service';
 import { APIComponent } from './api/api.component';
 import { HttpService } from './http.service';
+import { FormControlComponent } from './form-control/form-control.component';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -30,13 +31,14 @@ const appRoutes: Routes = [
   { path: 'if', component: IfComponent },
   { path: 'for', component: ForComponent },
   { path: 'api', component: APIComponent },
+  { path: 'form-control', component: FormControlComponent },
 ];
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule
+  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule, ReactiveFormsModule
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent ],
   bootstrap:    [ AppComponent ],
   providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService]
 })
