@@ -23,6 +23,7 @@ import { FormControlComponent } from './form-control/form-control.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { ValidatorsComponent } from './validators/validators.component';
+import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -38,13 +39,14 @@ const appRoutes: Routes = [
   { path: 'form-group', component: FormGroupComponent },
   { path: 'form-builder', component: FormBuilderComponent },
   { path: 'validators', component: ValidatorsComponent },
+  { path: 'template-driven-forms', component: TemplateDrivenFormsComponent },
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule, ReactiveFormsModule
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent, ValidatorsComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent, ValidatorsComponent, TemplateDrivenFormsComponent ],
   bootstrap:    [ AppComponent ],
   providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService]
 })
