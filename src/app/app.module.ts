@@ -25,8 +25,8 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { ValidatorsComponent } from './validators/validators.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { DynamicFormsComponent } from './dynamic-forms/dynamic-forms.component';
-import { QuestionControlService } from './question-control.service';
-import { QuestionService } from './question.service';
+import { DynamicFormQuestionComponent } from './dynamic-forms/dynamic-form-question/dynamic-form-question.component';
+
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -50,8 +50,8 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule, ReactiveFormsModule
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent, ValidatorsComponent, TemplateDrivenFormsComponent, DynamicFormsComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent, ValidatorsComponent, TemplateDrivenFormsComponent, DynamicFormsComponent, DynamicFormQuestionComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService, QuestionControlService, QuestionService]
+  providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService,]
 })
 export class AppModule { }

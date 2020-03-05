@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs";
-import { QuestionService } from "./question.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-dynamic-forms",
@@ -8,13 +8,68 @@ import { QuestionService } from "./question.service";
   styleUrls: ["./dynamic-forms.component.css"]
 })
 export class DynamicFormsComponent implements OnInit {
-  questions$: Observable<QuestionBase<any>[]>;
+  questions: QuestionBase<string>[] = [];
+  form: FormGroup;
+  payLoad = '';
 
-  constructor(service: QuestionService) {
-    this.questions$ = service.getQuestions();
+  constructor() {
+    this.questions = this.getQuestions();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.form = this.toFormGroup(this.questions);
+  }
+
+  onSubmit() {
+    this.payLoad = JSON.stringify(this.form.getRawValue());
+  }
+
+  toFormGroup(questions: QuestionBase<string>[]) {
+    let group: any = {};
+
+    questions.forEach(question => {
+      group[question.key] = question.required
+        ? new FormControl(question.value || "", Validators.required)
+        : new FormControl(question.value || "");
+    });
+    return new FormGroup(group);
+  }
+
+  getQuestions() {
+
+    let questions: QuestionBase<string>[] = [
+
+      new DropdownQuestion({
+        key: 'brave',
+        label: 'Bravery Rating',
+        options: [
+          {key: 'solid',  value: 'Solid'},
+          {key: 'great',  value: 'Great'},
+          {key: 'good',   value: 'Good'},
+          {key: 'unproven', value: 'Unproven'}
+        ],
+        order: 3
+      }),
+
+      new TextboxQuestion({
+        key: 'firstName',
+        label: 'First name',
+        value: 'Bombasto',
+        required: true,
+        order: 1
+      }),
+
+      new TextboxQuestion({
+        key: 'emailAddress',
+        label: 'Email',
+        type: 'email',
+        order: 2
+      })
+    ];
+
+    return questions.sort((a, b) => a.order - b.order);
+  }
+
 }
 export class QuestionBase<T> {
   value: T;
