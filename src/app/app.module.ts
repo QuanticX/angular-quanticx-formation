@@ -24,6 +24,9 @@ import { FormGroupComponent } from './form-group/form-group.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { ValidatorsComponent } from './validators/validators.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
+import { DynamicFormsComponent } from './dynamic-forms/dynamic-forms.component';
+import { QuestionControlService } from './question-control.service';
+import { QuestionService } from './question.service';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -40,14 +43,15 @@ const appRoutes: Routes = [
   { path: 'form-builder', component: FormBuilderComponent },
   { path: 'validators', component: ValidatorsComponent },
   { path: 'template-driven-forms', component: TemplateDrivenFormsComponent },
+  { path: 'dynamic-forms', component: DynamicFormsComponent },
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule, ReactiveFormsModule
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent, ValidatorsComponent, TemplateDrivenFormsComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent, ValidatorsComponent, TemplateDrivenFormsComponent, DynamicFormsComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService]
+  providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService, QuestionControlService, QuestionService]
 })
 export class AppModule { }
