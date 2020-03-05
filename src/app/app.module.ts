@@ -22,6 +22,7 @@ import { HttpService } from './http.service';
 import { FormControlComponent } from './form-control/form-control.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { ValidatorsComponent } from './validators/validators.component';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -36,13 +37,14 @@ const appRoutes: Routes = [
   { path: 'form-control', component: FormControlComponent },
   { path: 'form-group', component: FormGroupComponent },
   { path: 'form-builder', component: FormBuilderComponent },
+  { path: 'validators', component: ValidatorsComponent },
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule, ReactiveFormsModule
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent, FormBuilderComponent, ValidatorsComponent ],
   bootstrap:    [ AppComponent ],
   providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService]
 })
