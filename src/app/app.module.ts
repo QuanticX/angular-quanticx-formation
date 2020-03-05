@@ -20,6 +20,7 @@ import { LogService } from './log.service';
 import { APIComponent } from './api/api.component';
 import { HttpService } from './http.service';
 import { FormControlComponent } from './form-control/form-control.component';
+import { FormGroupComponent } from './form-group/form-group.component';
 
 const appRoutes: Routes = [
   { path: 'interpolation', component: InterpolationComponent },
@@ -32,13 +33,14 @@ const appRoutes: Routes = [
   { path: 'for', component: ForComponent },
   { path: 'api', component: APIComponent },
   { path: 'form-control', component: FormControlComponent },
+  { path: 'form-group', component: FormGroupComponent },
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot( appRoutes ), HttpClientModule, ReactiveFormsModule
  ],
-  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent ],
+  declarations: [ AppComponent, InterpolationComponent, PipeComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, ParentComponent, ChildComponent, IfComponent, ForComponent, APIComponent, FormControlComponent, FormGroupComponent ],
   bootstrap:    [ AppComponent ],
   providers: [LogService, {provide: HTTP_INTERCEPTORS, useClass: LogService, multi: true}, HttpService]
 })
