@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateDrivenFormsComponent {
 
-  powers = ['Super Flexible',
+  powers = ['Really Smart','Super Flexible',
             'Super Hot', 'Weather Changer'];
-  model = new Hero(1, 'Dr IQ', 'Really Smart', 'Chuck Overstreet');
+  model = new Hero(1, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
   submitted = false;
   onSubmit() { this.submitted = true; }
   newHero() {
