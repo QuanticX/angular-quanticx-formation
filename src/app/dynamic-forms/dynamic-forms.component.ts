@@ -22,6 +22,7 @@ export class DynamicFormsComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
+    console.warn(this.payLoad);
   }
 
   toFormGroup(questions: QuestionBase<string>[]) {
